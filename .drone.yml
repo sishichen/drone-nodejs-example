@@ -1,11 +1,12 @@
 pipeline:
   testing:
     image: node:8.6.0
+    group: testing
     commands:
-      - node -v
-      - npm -v
-      - yarn --version
-      - yarn config set cache-folder .yarn-cache
-      - yarn install --pure-lockfile
       - yarn run test
+
+  lint:
+    image: node:8.6.0
+    group: testing
+    commands:
       - yarn run lint
